@@ -1,0 +1,10 @@
+CREATE TABLE PUBLIC.test
+(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  name VARCHAR2(50) NOT NULL,
+  description TEXT NOT NULL
+);
+
+INSERT INTO PUBLIC.TEST (ID, NAME, DESCRIPTION) VALUES (3,'first script', 'first script comment');
+
+SELECT * from PUBLIC.test;
