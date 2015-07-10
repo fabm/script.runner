@@ -30,7 +30,7 @@ public class CustomScriptRunner {
     private PrintWriter errorLogWriter;
     private String delimiter;
     private boolean fullLineDelimiter;
-    private ResultListener resultListener;
+    protected ResultListener resultListener;
 
     public CustomScriptRunner(Connection connection, ResultListener resultListener) {
         this.resultListener = resultListener;
