@@ -11,11 +11,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class CustomScriptRunner {
     private static final String LINE_SEPARATOR = System.getProperty("line.separator", "\n");
@@ -253,19 +249,19 @@ public class CustomScriptRunner {
                     String value;
                     for (i = 0; i < cols; ++i) {
                         value = md.getColumnLabel(i + 1);
-                        this.printRes(value + "\t");
+                        this.print(value + "\t");
                     }
 
-                    this.printlnRes("");
+                    this.print("");
                     boolean isNotEmpty = false;
-                    while (e.next()) {
-                        isNotEmpty|=true;
+                    while (resultListener.delegateIteration() && e.next()) {
+                        isNotEmpty |= true;
                         for (i = 0; i < cols; ++i) {
                             value = e.getString(i + 1);
                             this.print(value + "\t");
                         }
                         resultListener.currentResultSet(e);
-                        this.printlnRes("");
+                        this.print("");
                     }
                     resultListener.setIsNotEmpty(isNotEmpty);
                 }
@@ -274,18 +270,6 @@ public class CustomScriptRunner {
             this.printlnError("Error printing results: " + var8.getMessage());
         }
 
-    }
-
-    private void printRes(Object o) {
-        if (resultListener.delegatePrint()) {
-            print(o);
-        }
-    }
-
-    private void printlnRes(Object o) {
-        if (resultListener.delegatePrint()) {
-            println(o);
-        }
     }
 
     private void print(Object o) {

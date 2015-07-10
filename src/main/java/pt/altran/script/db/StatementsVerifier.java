@@ -19,7 +19,7 @@ public class StatementsVerifier implements ResultListener{
         //do nothing
     }
 
-    public boolean delegatePrint() {
+    public boolean delegateIteration() {
         return true;
     }
 

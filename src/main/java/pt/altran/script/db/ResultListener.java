@@ -9,7 +9,7 @@ public interface ResultListener {
 
     void currentResultSet(ResultSet resultSet);
 
-    boolean delegatePrint();
+    boolean delegateIteration();
 
     void setColumnsCount(int cols);
 }
