@@ -3,6 +3,10 @@ package pt.altran.script.db;
 import java.sql.ResultSet;
 
 public class DefaultResultListener implements ResultListener {
+    public void startScript() {
+        //do nothing
+    }
+
     public void currentStatement(String statement) {
         //do nothing
     }

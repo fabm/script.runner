@@ -2,9 +2,17 @@ CREATE TABLE PUBLIC.test
 (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name VARCHAR2(50) NOT NULL,
-  description TEXT NOT NULL
+  description VARCHAR2(100) NOT NULL
 );
 
 INSERT INTO PUBLIC.TEST (ID, NAME, DESCRIPTION) VALUES (3,'first script', 'first script comment');
 
-SELECT * from PUBLIC.test;
+CREATE TABLE test2
+(
+  test2Column INT PRIMARY KEY NOT NULL,
+  test2Column2 VARCHAR2(30) NOT NULL
+);
+
+INSERT INTO PUBLIC.TEST2 (TEST2COLUMN, TEST2COLUMN2) VALUES (1, 'my first row of test2 table');
+INSERT INTO PUBLIC.TEST2 (TEST2COLUMN, TEST2COLUMN2) VALUES (2, 'my second row of test2 table');
+

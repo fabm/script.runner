@@ -3,6 +3,4 @@
 SELECT * from PUBLIC.test
 WHERE ID = 3;
 
-
-SELECT * from PUBLIC.test
-WHERE ID = 2;
+SELECT * from PUBLIC.TEST2;

@@ -1,9 +1,5 @@
 package pt.altran.script.db;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
 
 import org.apache.ibatis.jdbc.RuntimeSqlException;
 
@@ -79,7 +75,7 @@ public class CustomScriptRunner {
 
     public void runScript(Reader reader) {
         this.setAutoCommit();
-
+        this.resultListener.startScript();
         try {
             if (this.sendFullScript) {
                 this.executeFullScript(reader);
@@ -254,7 +250,7 @@ public class CustomScriptRunner {
 
                     this.print("");
                     boolean isNotEmpty = false;
-                    while (resultListener.delegateIteration() && e.next()) {
+                    while (e.next()) {
                         isNotEmpty |= true;
                         for (i = 0; i < cols; ++i) {
                             value = e.getString(i + 1);

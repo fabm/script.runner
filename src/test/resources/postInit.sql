@@ -1,0 +1,3 @@
+SELECT * from PUBLIC.test;
+
+SELECT * from PUBLIC.TEST2;

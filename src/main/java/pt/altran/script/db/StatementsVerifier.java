@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 public class StatementsVerifier implements ResultListener{
     private String statement;
 
+    public void startScript() {
+        //do nothing
+    }
+
     public void currentStatement(String statement) {
         this.statement = statement;
     }
