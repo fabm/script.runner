@@ -4,8 +4,10 @@ import org.apache.ibatis.jdbc.RuntimeSqlException;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -23,10 +25,10 @@ import java.util.Map;
 public class TestScripts {
 
 
-    private static SqlSession session;
+    private SqlSession session;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException, FileNotFoundException {
+    @Before
+    public void setup() throws URISyntaxException, FileNotFoundException {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
             .build(TestScripts.class.getResourceAsStream("/config.xml"), "h2");
 
@@ -36,8 +38,8 @@ public class TestScripts {
         customScriptRunner.runScript(new FileReader(file));
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         session.close();
     }
 
@@ -105,7 +107,6 @@ public class TestScripts {
 
         customScriptRunner.runScript(new FileReader(file2));
 
-        session.close();
     }
 
     @Test
@@ -130,10 +131,6 @@ public class TestScripts {
         customScriptRunner.runScript(new FileReader(file1));
 
         customScriptRunner.runScript(new FileReader(file2));
-
-        session.close();
-
-
     }
 
 }
