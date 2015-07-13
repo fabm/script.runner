@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class CompareResultListener implements ResultListener{
-    private final List<DataSet> dataSets = new ArrayList<DataSet>();
-    private int cols;
-    private int scriptIndex = 0;
-    private int statementIndex;
-    private int rowIndex;
+    protected final List<DataSet> dataSets = new ArrayList<DataSet>();
+    protected int cols;
+    protected int scriptIndex = 0;
+    protected int statementIndex;
+    protected int rowIndex;
 
     public void startScript() {
         scriptIndex++;
@@ -34,7 +34,7 @@ public abstract class CompareResultListener implements ResultListener{
     public void setIsNotEmpty(boolean hasResult) {
     }
 
-    abstract void compare(Map.Entry<String, Object> entry,Map<String, Object> line, ResultSet resultSet);
+    protected abstract void compare(Map.Entry<String, Object> entry,Map<String, Object> line, ResultSet resultSet);
 
     public void currentResultSet(ResultSet resultSet) {
         try {

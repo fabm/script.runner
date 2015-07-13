@@ -113,7 +113,7 @@ public class TestScripts {
     public void compareTwoScripts2() throws URISyntaxException, FileNotFoundException {
         CompareResultListener comparer = new CompareResultListener() {
             @Override
-            void compare(Map.Entry<String, Object> entry, Map<String, Object> line, ResultSet resultSet) {
+            protected void compare(Map.Entry<String, Object> entry, Map<String, Object> line, ResultSet resultSet) {
                 try {
                     Assert.assertEquals(entry.getValue(),resultSet.getObject(entry.getKey()));
                 } catch (SQLException e) {
