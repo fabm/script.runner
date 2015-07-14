@@ -43,7 +43,6 @@ public abstract class CompareResultListener implements ResultListener{
                 line = dataSets.get(statementIndex-1).getLines().get(rowIndex);
                 for (Map.Entry<String, Object> entry : line.entrySet()) {
                     compare(entry,line,resultSet);
-                    Assert.assertEquals(line.get(entry.getKey()), resultSet.getObject(entry.getKey()));
                 }
             } else {
                 DataSet dataSet = dataSets.get(dataSets.size() - 1);
