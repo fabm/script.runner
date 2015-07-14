@@ -1,7 +1,6 @@
 package pt.altran.script.db;
 
 import org.apache.ibatis.jdbc.RuntimeSqlException;
-import org.junit.Assert;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class CompareResultListener implements ResultListener{
+public abstract class CompareResultListener implements ResultListener {
     protected final List<DataSet> dataSets = new ArrayList<DataSet>();
     protected int cols;
     protected int scriptIndex = 0;
@@ -34,15 +33,15 @@ public abstract class CompareResultListener implements ResultListener{
     public void setIsNotEmpty(boolean hasResult) {
     }
 
-    protected abstract void compare(Map.Entry<String, Object> entry,Map<String, Object> line, ResultSet resultSet);
+    protected abstract void compare(Map.Entry<String, Object> entry, Map<String, Object> line, ResultSet resultSet);
 
     public void currentResultSet(ResultSet resultSet) {
         try {
             Map<String, Object> line;
             if (scriptIndex == 2) {
-                line = dataSets.get(statementIndex-1).getLines().get(rowIndex);
+                line = dataSets.get(statementIndex - 1).getLines().get(rowIndex);
                 for (Map.Entry<String, Object> entry : line.entrySet()) {
-                    compare(entry,line,resultSet);
+                    compare(entry, line, resultSet);
                 }
             } else {
                 DataSet dataSet = dataSets.get(dataSets.size() - 1);
