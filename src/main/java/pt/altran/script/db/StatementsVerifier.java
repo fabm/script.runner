@@ -30,4 +30,8 @@ public class StatementsVerifier implements ResultListener{
     public void setColumnsCount(int cols) {
         //do nothing
     }
+
+    public void afterRun() {
+
+    }
 }

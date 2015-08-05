@@ -12,4 +12,6 @@ public interface ResultListener {
     void currentResultSet(ResultSet resultSet);
 
     void setColumnsCount(int cols);
+
+    void afterRun();
 }
